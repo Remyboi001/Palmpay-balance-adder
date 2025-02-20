@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Home Page</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<style>
+body {
+background-color: #fff;
+text-align: center;
+margin: 0;
+padding: 0;
+}
+.content {
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+}
+input, button {
+font-size: 18px;
+padding: 10px;
+margin-bottom: 20px;
+}
+label {
+font-size: 18px;
+margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+<div class="content">
+<h4>Fill in your details below:</h4>
+<input type="number" id="account-number" placeholder="Enter account number">
+<input type="text" id="account-name" placeholder="Enter account name">
+<h3>Select Fund Amount:</h3>
+<div>
+<label><input type="radio" name="option" value="1"> ₦10,000</label>
+</div>
+<div>
+<label><input type="radio" name="option" value="2"> ₦20,000</label>
+</div>
+<div>
+<label><input type="radio" name="option" value="3"> ₦30,000</label>
+</div>
+<div>
+<label><input type="radio" name="option" value="4"> ₦40,000</label>
+</div>
+<div>
+<label><input type="radio" name="option" value="5"> ₦50,000</label>
+</div>
+<button onclick="proceed()">Proceed</button>
+</div>
+<div id="alert" style="position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
+<script>
+function proceed() {
+const accountNumber = document.getElementById("account-number").value;
+const accountName = document.getElementById("account-name").value;
+const option = document.querySelector('input[name="option"]:checked');
+
+if (!accountNumber || !accountName || !option) {
+showAlert("Error!", "Please fill in all fields and select an amount.", "danger");
+} else {
+localStorage.setItem("accountNumber", accountNumber);
+localStorage.setItem("accountName", accountName);
+localStorage.setItem("option", option.value);
+window.location.href = "paid.html";
+}
+}
+
+function showAlert(title, message, type) {
+const alertBox = document.getElementById("alert");
+alertBox.innerHTML = `
+<div class="alert alert-${type}" role="alert">
+<h4 class="alert-heading">${title}</h4>
+<p>${message}</p>
+</div>
+`;
+setTimeout(() => {
+alertBox.innerHTML = "";
+}, 3000);
+}
+</script>
+</body>
+</html>

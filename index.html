@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>PalmPay Hack</title>
+<style>
+body {
+background-image: url("https://imagizer.imageshack.com/v2/150x100q70/923/9Qrg51.png");
+background-size: cover;
+background-attachment: fixed;
+background-position: center;
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://imagizer.imageshack.com/v2/150x100q70/923/9Qrg51.png', sizingMethod='scale');
+-ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='https://imagizer.imageshack.com/v2/150x100q70/923/9Qrg51.png', sizingMethod='scale')";
+}
+
+	.container {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		text-align: center;
+	}
+</style>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+</head>
+<body>
+<!-- Add your content here -->
+<div class="container">
+<h3 style="color: #0f000f ;">Palmpay Balance Adder (2025) </h3>
+<input type="text" id="activationCode" placeholder="Enter Activation Code" style="padding:10px; font-size:16px; border-radius:5px; border:none;">
+<button onclick="checkCode()" style="padding:10px 20px; font-size:16px; border-radius:5px; border:none; background-color:#007bff; color:white;">Enter</button>
+</div>
+
+<script>
+	function checkCode() {
+		var code = document.getElementById("activationCode").value;
+		if (code === "") {
+			swal("Error!", "Activation code field cannot be empty!", "error");
+		} else if (code !== "PalmpayHack2025001") {
+			swal("Error!", "Incorrect activation code!", "error");
+		} else {
+			window.location.href = "home.html";
+		}
+	}
+</script>
+
+</body>
+</html>
